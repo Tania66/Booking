@@ -6,10 +6,13 @@ import CalendarData from "../CalendarDate/CalendarData";
 import ChildrenSelect from "../ChildrenSelect/ChildrenSelect";
 import AdultsSelect from "../AdultsSelect/AdultsSelect";
 import { getHotel } from "../../features/redux/hotelOperation";
+import { FindButton, FormContainer,HomeContainer, MainForm } from "./SearchForm.styled";
+import HomePageContent from "../HomePageContent/HomePageContent";
 
 
 const SearchForm = () => {
   const dispatch = useDispatch();
+
 
   const onSubmit = (values,{reset}) => {
     dispatch(getHotel(values.destination));
@@ -21,19 +24,20 @@ const SearchForm = () => {
   const validate = (values) =>{
     const errors = {};
     if(values.startDate >= values.endDate){
-      errors.endDate = "You can not reserved date in past";
+      errors.endDate = "You can not reserved date in past!";
     }
        return errors;
     }
     
 
   return (
-    <div>
+    <HomeContainer>
+       <FormContainer>
       <Form
         onSubmit={onSubmit}
         validate={validate}
         render={({ handleSubmit}) => (
-          <form onSubmit={handleSubmit}>
+          <MainForm onSubmit={handleSubmit}>
             <div>
               <SelectDestination />
             </div>
@@ -51,12 +55,18 @@ const SearchForm = () => {
             </div>
 
             <div>
-              <button type="submit">Find</button>
+              <FindButton type="submit">Find</FindButton>
             </div>
-          </form>
+          </MainForm>
         )}
       />
-    </div>
+    </FormContainer>
+<div>
+     <HomePageContent/>
+</div>
+ 
+    </HomeContainer>
+   
   );
 };
 

@@ -1,21 +1,30 @@
 import { Suspense } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { FaDotCircle } from "react-icons/fa";
+import { Container, Header, Link, LogoLink, LogoText, NavList } from './Layout.styled';
+
 const Layout = () => {
   return (
-    <div>
-      <header>
+    <Container>
+      <Header>
+        <LogoLink to="/">
+        
+        <FaDotCircle size={25} color='orange'/>
+        <LogoText>Booking</LogoText>
+        
+        </LogoLink>
 <nav>
-  <ul>
+  <NavList>
     <li>
-    <NavLink to="/" >Home</NavLink>
+    <Link to="/">Home</Link>
     </li>
     <li>
-     <NavLink to="/about" >About</NavLink>
+     <Link to="/about" >About</Link>
     </li>
 
-  </ul>
+  </NavList>
 </nav>
-      </header>
+      </Header>
       <main>
       <Suspense fallback={<div>Loading...</div>}>
     <Outlet/>
@@ -24,7 +33,7 @@ const Layout = () => {
       <footer>
 
       </footer>
-    </div>
+    </Container>
   )
 }
 

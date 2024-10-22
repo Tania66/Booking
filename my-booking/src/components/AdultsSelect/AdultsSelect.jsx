@@ -8,7 +8,7 @@ const AdultsSelect = () => {
   return (
     <Field name="adults">
     {({ input, meta }) => (
-      <FormControl sx={{ m: 1, minWidth: 250 }}>
+      <FormControl sx={{ m: 1, minWidth: 100 }}>
         <InputLabel>Adults</InputLabel>
         <Select
           label="Adults"

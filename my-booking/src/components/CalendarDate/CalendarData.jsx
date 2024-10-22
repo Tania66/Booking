@@ -4,6 +4,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Field } from "react-final-form";
 import { format } from "date-fns";
+import { CalendarContainer,SpanError } from "./CalendarData.styled";
 const CalendarData = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -12,7 +13,7 @@ const CalendarData = () => {
 
 
   return (
-    <div>
+    <CalendarContainer>
       <div>
         <Field name="startDate">
           {({ input, meta }) => (
@@ -27,7 +28,7 @@ const CalendarData = () => {
                   }}
                 />
               </LocalizationProvider>
-              {meta.touched && meta.error && <span>{meta.error}</span>}
+              {meta.touched && meta.error && <SpanError>{meta.error}</SpanError>}
             </>
           )}
         </Field>
@@ -49,12 +50,12 @@ const CalendarData = () => {
           
                 />
               </LocalizationProvider>
-              {meta.touched && meta.error && <span>{meta.error}</span>}
+              {meta.touched && meta.error && <SpanError>{meta.error}</SpanError>}
             </>
           )}
         </Field>
       </div>
-    </div>
+    </CalendarContainer>
   );
 };
 

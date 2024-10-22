@@ -9,7 +9,7 @@ const ChildrenSelect = () => {
   return (
     <Field name="children">
       {({ input, meta }) => (
-        <FormControl sx={{ m: 1, minWidth: 250 }}>
+        <FormControl sx={{ m: 1, minWidth: 120 }}>
           <InputLabel>Children</InputLabel>
           <Select
             label="Children"
